@@ -4,6 +4,7 @@ import Friends from "../../Pages/Friends/Friends";
 import LogIn from "../../Pages/LogIn/LogIn";
 import SignUp from "../../Pages/LogIn/SignUp";
 import Media from "../../Pages/Media/Media";
+import Peoples from "../../Pages/Peoples/Peoples";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
       {
         path: '/friends',
         element: <Friends></Friends>
-      }
+      },
+      {
+        path: '/peoplenearby',
+        element: <Peoples></Peoples>
+      },
     ]
   },
   {

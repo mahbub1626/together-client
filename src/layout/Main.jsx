@@ -30,6 +30,22 @@ const Main = () => {
                         </ul>
 
                     </div>
+                    <div className="drawer-side">
+                        <label htmlFor="dashboard-drawer" className="drawer"></label>
+                        <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+
+                            <li><Link to='/newsfeed'>News Feed</Link></li>
+
+                            {
+                                <>
+                                    <li><Link to='/peoplenearby'>People Nearby</Link></li>
+                                    <li><Link to='/friends'>Friends</Link></li>
+                                    
+                                </>
+                            }
+                        </ul>
+
+                    </div>
                 </div>
             <Footer></Footer>
         </div>

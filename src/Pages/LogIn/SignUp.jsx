@@ -22,11 +22,17 @@ const SignUp = () => {
                 console.log(user)
                 toast.success('Sign up Successfully!')
                 const userInfo = {
-                    displayName: data.name
+                    displayName: data.name,
+                    email: data.email,
+                    dateOfBirth: data.dateofbirth,
+                    gender: data.gender,
+                    emailVerified: user.emailVerified,
+                    photoURL: user.photoURL,
+                    phoneNumber: user.phoneNumber
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email)
+                        saveUser(data.name, data.email, data.dateofbirth, data.gender, user.emailVerified, user.photoURL, user.phoneNumber )
                     })
                     .catch(error => console.error(error))
             })
@@ -40,16 +46,26 @@ const SignUp = () => {
         signInWithGoogle(GoogleProvider)
             .then(result => {
                 const user = result.user;
-                console.log('Sign up With Google Successfully!', user)
+                console.log('Sign up With Google Successfully!', user, user.displayName, user.email, user.emailVerified, user.phoneNumber)
                 toast.success('Sign up With Google Successfully!')
-                // const userInfo = {
-                //     displayName: data.name
-                // }
-                // updateUser(userInfo)
-                //     .then(() => {
-                //         saveUser(displayName ,email)
-                //     })
-                //     .catch(error => console.error(error))
+                const dateOfBirth= null;
+                const gender= null;
+                // const dateOfBirth= null;
+
+                const userInfo = {
+                    displayName: user.displayName, 
+                    email: user.email, 
+                    dateOfBirth: dateOfBirth,
+                    gender: gender,
+                    emailVerified: user.emailVerified,
+                    photoURL: user.photoURL,
+                    phoneNumber: user.phoneNumber
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        saveUser(user.displayName, user.email, dateOfBirth, gender, user.emailVerified, user.photoURL, user.phoneNumber )
+                    })
+                    .catch(error => console.error(error))
             })
             .catch(error => {
                 console.error(error)
@@ -58,10 +74,15 @@ const SignUp = () => {
     }
 
     // user data create db
-    const saveUser = (name, email) => {
+    const saveUser = (displayName, email,dateOfBirth, gender, emailVerified, photoURL, phoneNumber) => {
         const user = {
-            name,
+            displayName,
             email,
+            dateOfBirth,
+            gender,
+            emailVerified,
+            photoURL,
+            phoneNumber
 
         };
         console.log("user data create db", user)
@@ -111,13 +132,12 @@ const SignUp = () => {
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Date of birth</span></label>
                         <input type="date" {...register('dateofbirth', {
-                            required: 'Password is required',
-                            minLength: { value: 6, message: 'Password must be 6 characters long' },
-                            pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'date of birth must be add' }
+                            required: 'Date of birth is required',
                         })} className="input input-bordered w-full " />
                         {errors.dateofbirth && <p className='text-red-500'>{errors.dateofbirth?.message}</p>}
                     </div>
 
+                    {/* gender */}
                     <div className="flex my-4 items-center">
                         <h3 className='font-bold mr-4'>Gender:</h3>
                         <label className="label"><span className="label-text ">Male</span></label>
@@ -135,12 +155,12 @@ const SignUp = () => {
                     </div>
 
                     {/* Sign up submit button */}
-                    <input className='btn btn-primary w-full mt-3 text-white' value='Sign up' type="submit" />
+                    <input className='btn btn-info hover:bg-cyan-500  w-full mt-3 text-white' value='Sign up' type="submit" />
                     {signUpError && <p className='text-red-500'>{signUpError}</p>}
                 </form>
                 <p>Already have account? <Link className='text-secondary' to='/login'>Please login</Link></p>
                 <div className="divider">OR</div>
-                <button onClick={handleSignInWithGoogle} className='btn btn-outline hover:btn-secondary w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handleSignInWithGoogle} className='btn btn-outline hover:btn-info w-full '>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );

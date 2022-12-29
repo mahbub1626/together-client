@@ -1,12 +1,17 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const Nav = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleSingOut = () => {
+
         logOut()
-            .then(result => { })
+            .then(() => {
+                toast.error('Sign-out successful!');
+                // Sign-out successful.
+            })
             .catch(error => console.error(error))
     }
     const menuItems = <>
@@ -49,7 +54,11 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <div className="avatar">
+                    <div className="w-12 rounded-full">
+                        <img src="https://placeimg.com/192/192/people" />
+                    </div>
+                </div>
             </div>
         </div>
     );
