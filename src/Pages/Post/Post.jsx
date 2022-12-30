@@ -36,9 +36,9 @@ const Post = () => {
                 if (imgData.success) {
                     console.log(imgData.data.url);
                     const post = {
-                        displayName: user.displayName,
+                        displayName: user?.displayName,
                         email: user.email,
-                        photo: user.photoURL,
+                        photo: user?.photoURL,
                         postText: data.postText,
                         love,
                         comment,

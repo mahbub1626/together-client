@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import { FaUserCircle } from "react-icons/fa";
 
 const Peoples = () => {
     const { data: users = [], refetch } = useQuery({
@@ -42,14 +43,18 @@ const Peoples = () => {
                         <div className='grid grid-cols-2'>
                             <div className="avatar ">
                                 <div className="w-16 rounded-full">
-                                    <img src={user?.photoURL} alt=""/>
+                                    {
+                                        user.photoURL ?
+                                        <img src={user?.photoURL} alt=""/>
+                                        :
+                                        <FaUserCircle className='w-full ' />
+                                    }
                                 </div>
                             </div>
                             <div>{user?.displayName}</div>
                         </div>
 
                         <td>{user?.role !== 'admin' && <button onClick={() => handleFriendRequest(user._id)} className='btn btn-xs btn-info'>Add Friend</button>}</td>
-                        {/* <td><button className='btn btn-xs btn-denger'>Delete</button></td> */}
                     </tr>)
                 }
 

@@ -1,12 +1,17 @@
 import React from 'react';
+import { FaUserCircle } from "react-icons/fa";
 
-const NewsFeedPost = ({post}) => {
+const NewsFeedPost = ({ post }) => {
     return (
         <div className="flex m-8">
             <div className="max-w-sm container bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl">
                 <div className='flex'>
                     <div className="flex items-center space-x-2">
-                        <img className="w-10 rounded-full" src={post.photo} alt="sara" />
+                        {post.photo ?
+                            <img className="w-10 rounded-full" src={post.photo} alt="sara" />
+                            :
+                            <FaUserCircle className='w-full ' />
+                        }
                     </div>
                     <div>
 
@@ -16,7 +21,7 @@ const NewsFeedPost = ({post}) => {
                 <div>
                     <p className="ml-4 mt-1 mb-2 text-gray-700 hover:underline cursor-pointer">{post.postText}</p>
                 </div>
-                
+
                 <img className="w-full cursor-pointer" src={post?.img} alt="" />
                 <div className="flex p-4 justify-between">
                     <div className="flex space-x-2">
