@@ -15,7 +15,7 @@ const Main = () => {
                         <Outlet></Outlet>
                     </div>
                     <div className="drawer-side">
-                        <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
+                        <label for="dashboard-drawer" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
                             <li><Link to='/newsfeed'>News Feed</Link></li>
@@ -31,7 +31,7 @@ const Main = () => {
 
                     </div>
                     <div className="drawer-side">
-                        <label htmlFor="dashboard-drawer" className="drawer"></label>
+                        <label for="dashboard-drawer" className="drawer"></label>
                         <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
                             <li><Link to='/newsfeed'>News Feed</Link></li>

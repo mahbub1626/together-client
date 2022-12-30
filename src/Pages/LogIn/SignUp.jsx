@@ -86,7 +86,7 @@ const SignUp = () => {
 
         };
         console.log("user data create db", user)
-        fetch('http://localhost:5000/users', {
+        fetch('https://together-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

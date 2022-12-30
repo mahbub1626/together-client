@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import About from "../../Pages/About/About";
 import Friends from "../../Pages/Friends/Friends";
 import LogIn from "../../Pages/LogIn/LogIn";
 import SignUp from "../../Pages/LogIn/SignUp";
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/peoplenearby',
         element: <Peoples></Peoples>
+      },
+      {
+        path: '/about',
+        element: <About></About>
       },
     ]
   },

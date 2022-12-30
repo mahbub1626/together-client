@@ -80,7 +80,7 @@ const LogIn = () => {
 
         };
         console.log("user data create db", user)
-        fetch('http://localhost:5000/users', {
+        fetch('https://together-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -122,7 +122,7 @@ const LogIn = () => {
                             {loginError && <p className='text-red-500'>{loginError}</p>}
                         </div>
                     </form>
-                    <p>New to Doctors Portal? <Link className='text-secondary' to='/signup'>Create new account</Link></p>
+                    <p>Haven`t an account? <Link className='text-secondary' to='/signup'>Create new account</Link></p>
                     <div className="divider">OR</div>
                     <button onClick={handleSignInWithGoogle} className='btn btn-outline hover:btn-info w-full'>CONTINUE WITH GOOGLE</button>
                 </div>

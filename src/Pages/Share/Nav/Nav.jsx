@@ -23,7 +23,7 @@ const Nav = () => {
         {
             user?.uid ?
                 <>
-                    <li><Link to='/dashboard'>About</Link></li>
+                    <li><Link to='/about'>About</Link></li>
                     <li><button onClick={handleSingOut}>Sign out</button></li>
                 </>
                 :
@@ -46,7 +46,7 @@ const Nav = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Together</a>
+                <a href='/' className="btn btn-ghost normal-case text-xl text-slate-50">Together</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -56,7 +56,7 @@ const Nav = () => {
             <div className="navbar-end">
                 <div className="avatar">
                     <div className="w-12 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" />
+                        <img src={user?.photoURL} alt='' />
                     </div>
                 </div>
             </div>
