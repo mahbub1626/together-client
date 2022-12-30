@@ -27,7 +27,7 @@ const About = () => {
                         src={user?.photoURL}
                         alt="User" />
                     <a href="#"> <span
-                        className="text-h1">Michele</span></a>
+                        className="text-h1">{user?.displayName}</span></a>
                 </div>
                 <div
                     className="grid px-7 py-2  items-center justify-around grid-cols-3 gap-4 divide-x divide-solid ">
